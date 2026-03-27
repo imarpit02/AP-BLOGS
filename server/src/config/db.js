@@ -5,8 +5,6 @@ let isConnected = false
 const connectDB = async () => {
   try {
     await mongoose.connect(config.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
     })
       .then(() => {
         isConnected = true
