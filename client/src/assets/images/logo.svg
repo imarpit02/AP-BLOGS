@@ -1,0 +1,28 @@
+<svg width="100%" viewBox="0 0 520 170" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- oklch(0.606 0.25 292.717) ≈ #7C3AED (Violet-600) -->
+
+  <!-- Background rect -->
+  <rect x="0" y="0" width="520" height="160" rx="20" fill="#7C3AED" style="fill:rgb(124, 58, 237);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Subtle inner glow circle behind AP -->
+  <circle cx="80" cy="80" r="62" fill="#6D28D9" opacity="0.6" style="fill:rgb(109, 40, 217);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Divider line -->
+  <line x1="155" y1="30" x2="155" y2="130" stroke="#A78BFA" stroke-width="1.2" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(167, 139, 250);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- AP monogram -->
+  <text x="80" y="103" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#EDE9FE" letter-spacing="-2" style="fill:rgb(237, 233, 254);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:72px;font-weight:700;text-anchor:middle;dominant-baseline:auto">AP</text>
+
+  <!-- Brand name -->
+  <text x="210" y="88" font-family="sans-serif" font-size="38" font-weight="600" fill="#EDE9FE" letter-spacing="4" style="fill:rgb(237, 233, 254);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:sans-serif;font-size:38px;font-weight:600;text-anchor:start;dominant-baseline:auto">BLOGS</text>
+
+  <!-- Tagline -->
+  <text x="212" y="114" font-family="sans-serif" font-size="12" fill="#C4B5FD" letter-spacing="3" opacity="0.9" style="fill:rgb(196, 181, 253);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">WRITE · SHARE · INSPIRE</text>
+
+  <!-- Decorative dots -->
+  <circle cx="478" cy="38" r="5" fill="#A78BFA" opacity="0.5" style="fill:rgb(167, 139, 250);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="494" cy="54" r="3" fill="#A78BFA" opacity="0.3" style="fill:rgb(167, 139, 250);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="468" cy="52" r="3" fill="#A78BFA" opacity="0.3" style="fill:rgb(167, 139, 250);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+</svg>
