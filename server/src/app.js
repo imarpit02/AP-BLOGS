@@ -11,26 +11,10 @@ import likeRoutes from './routes/like.routes.js';
 
 const app = express();
 
-// app.use(cors({
-//   origin: config.FRONTEND_URI,
-//   credentials: true
-// }))
-
-
-
-app.use(
-  cors({
-    origin: [
-      "http://localhost:5173",
-      "https://ap-blogs-zneh.vercel.app"
-    ],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-  })
-)
-
-app.options("*", cors())
+app.use(cors({
+  origin: config.FRONTEND_URI,
+  credentials: true
+}))
 
 app.use(cookieParser())
 app.use(express.json())
