@@ -26,7 +26,6 @@ import { getEnv } from "@/helpers/getEnv"
 import { useDispatch } from "react-redux"
 import { setUser } from "@/redux/user/user.slice"
 import GoogleLogin from "@/components/GoogleLogin"
-import logo from '@/assets/images/logo.svg'
 
 const SignIn = () => {
 
@@ -71,12 +70,7 @@ const SignIn = () => {
   return (
     <div className="relative flex items-center justify-center h-screen w-screen bg-linear-to-r from-purple-500 via-purple-600 to-primary px-5 lg:px-0">
       <Card className="w-full sm:max-w-md mx-auto">
-        <CardHeader className='flex items-center gap-2'>
-        <Button asChild variant='link'>
-          <Link to={RouteIndex}>
-            <img src={logo} alt="" className="w-18 h-12"/>
-          </Link>
-        </Button>
+        <CardHeader>
           <CardTitle className="text-2xl font-bold text-center">Login into Account</CardTitle>
         </CardHeader>
 
