@@ -7,6 +7,6 @@ const router = express.Router()
 router.post('/register', registerUser)
 router.post('/login', loginUser)
 router.post('/google-login', googleLogin)
-router.post('/logout',  logoutUser)
+router.post('/logout', authenticate,  logoutUser)
 
 export default router

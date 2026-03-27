@@ -49,9 +49,8 @@ const Topbar = () => {
     try {
       const response = await axios.post(
         `${getEnv('VITE_BASE_URL')}/auth/logout`,
-        {
-          withCredentials: true
-        }
+        {},
+        { withCredentials: true }
       )
       showToast('success', response.data.message);
       dispatch(removeUser())

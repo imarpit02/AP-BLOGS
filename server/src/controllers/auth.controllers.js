@@ -85,7 +85,7 @@ export const googleLogin = async (req, res, next) => {
     if (!user) {
       const password = Math.random().toString()
       const hashedPassword = await bcrypt.hash(password, 10)
-      const newUser = await userModel.create({
+      user = await userModel.create({
         name,
         email,
         password: hashedPassword,
@@ -119,12 +119,11 @@ export const googleLogin = async (req, res, next) => {
 export const logoutUser = async (req, res, next) => {
   try {
 
-    res.cookie('access_token', {
+    res.clearCookie('access_token', {
       httpOnly: true,
       secure: config.NODE_ENV === 'production',
       sameSite: config.NODE_ENV === 'production' ? 'none' : 'lax',
       path: '/',
-      maxAge: 0 
     })
 
     return res.status(200).json({
