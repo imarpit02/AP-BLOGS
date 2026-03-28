@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Sidebar,
   SidebarContent,
@@ -7,70 +7,76 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import { NavLink } from 'react-router-dom'
+} from "@/components/ui/sidebar";
+import { NavLink } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
 import { TbCategory } from "react-icons/tb";
 import { GrBlog } from "react-icons/gr";
 import { FaRegComments } from "react-icons/fa6";
 import { LuUsers } from "react-icons/lu";
 import { GoDot } from "react-icons/go";
-import { RouteBlog, RouteBlogsByCategory, RouteCategoryDetails, RouteCommentDetails, RouteIndex, RouteUser } from '@/helpers/RouteName';
-import { useFetch } from '@/hooks/userFetch';
-import { getEnv } from '@/helpers/getEnv';
-import { useSelector } from 'react-redux';
+import {
+  RouteBlog,
+  RouteBlogsByCategory,
+  RouteCategoryDetails,
+  RouteCommentDetails,
+  RouteIndex,
+  RouteUser,
+} from "@/helpers/RouteName";
+import { useFetch } from "@/hooks/userFetch";
+import { getEnv } from "@/helpers/getEnv";
+import { useSelector } from "react-redux";
 
 const AppSidebar = () => {
-
-  const user = useSelector(state => state.user)
+  const user = useSelector((state) => state.user);
 
   const menuItems = [
-    { icon: <IoHomeOutline />, path: RouteIndex, name: 'Home' },
+    { icon: <IoHomeOutline />, path: RouteIndex, name: "Home" },
 
     {
       icon: <TbCategory />,
       path: RouteCategoryDetails,
-      name: 'Categories',
+      name: "Categories",
       auth: true,
-      role: 'admin'
+      role: "admin",
     },
 
     {
       icon: <GrBlog />,
       path: RouteBlog,
-      name: 'Blogs',
-      auth: true
+      name: "Blogs",
+      auth: true,
     },
 
     {
       icon: <FaRegComments />,
       path: RouteCommentDetails,
-      name: 'Comments',
-      auth: true
+      name: "Comments",
+      auth: true,
     },
 
     {
       icon: <LuUsers />,
       path: RouteUser,
-      name: 'Users',
+      name: "Users",
       auth: true,
-      role: 'admin'
+      role: "admin",
     },
-  ].filter(item => {
-    if (item.auth && !user?.isLoggedIn) return false
-    if (item.role && user?.user?.role !== item.role) return false
-    return true
-  })
+  ].filter((item) => {
+    if (item.auth && !user?.isLoggedIn) return false;
+    if (item.role && user?.user?.role !== item.role) return false;
+    return true;
+  });
 
   const { data: categoryData } = useFetch(
-    `${getEnv('VITE_BASE_URL')}/category/all-category`,
+    `${getEnv("VITE_BASE_URL")}/category/all-category`,
     { method: "GET", withCredentials: true },
-  )
+  );
 
   return (
-    <Sidebar className='pt-25'>
-      <SidebarContent className='bg-white'>
-        <SidebarGroup >
+    <Sidebar className="pt-25">
+      <SidebarContent className="bg-white">
+        <SidebarGroup>
           <SidebarMenu>
             {menuItems.map((item, idx) => (
               <SidebarMenuItem key={idx}>
@@ -81,7 +87,7 @@ const AppSidebar = () => {
                       isActive={isActive}
                       className="data-[active=true]:bg-primary data-[active=true]:text-white"
                     >
-                      <div className="flex items-center gap-2 w-full">
+                      <div className="flex w-full items-center gap-2">
                         {item.icon}
                         <span>{item.name}</span>
                       </div>
@@ -93,11 +99,9 @@ const AppSidebar = () => {
           </SidebarMenu>
         </SidebarGroup>
         <SidebarGroup>
-          <SidebarGroupLabel>
-            Categories
-          </SidebarGroupLabel>
+          <SidebarGroupLabel>Categories</SidebarGroupLabel>
           <SidebarMenu>
-            {categoryData?.category?.map(category => (
+            {categoryData?.category?.map((category) => (
               <SidebarMenuItem key={category._id}>
                 <NavLink to={RouteBlogsByCategory(category.slug)}>
                   {({ isActive }) => (
@@ -106,7 +110,7 @@ const AppSidebar = () => {
                       isActive={isActive}
                       className="data-[active=true]:bg-primary data-[active=true]:text-white"
                     >
-                      <div className="flex items-center gap-2 w-full">
+                      <div className="flex w-full items-center gap-2">
                         <GoDot />
                         <span>{category.name}</span>
                       </div>
@@ -119,7 +123,7 @@ const AppSidebar = () => {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
-}
+  );
+};
 
-export default AppSidebar
+export default AppSidebar;

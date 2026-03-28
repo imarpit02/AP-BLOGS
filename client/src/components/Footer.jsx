@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const Footer = () => {
   return (
-    <div className='lg:text-sm text-xs text-center bg-gray-50 py-4'>
-      © Copyright {new Date().getFullYear()} | Designed & Developed By: Arpit Bajpai
+    <div className="bg-gray-50 py-4 text-center text-xs lg:text-sm">
+      © Copyright {new Date().getFullYear()} | Designed & Developed By: Arpit
+      Bajpai
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

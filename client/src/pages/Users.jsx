@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, } from '@/components/ui/card'
-import React, { useState } from 'react'
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import React, { useState } from "react";
 import {
   Table,
   TableBody,
@@ -8,40 +8,39 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { useFetch } from '@/hooks/userFetch'
-import { getEnv } from '@/helpers/getEnv'
-import Loading from '@/components/Loading'
-import { FaRegTrashCan } from "react-icons/fa6"
-import { deleteData } from '@/helpers/handleDelete'
-import { showToast } from '@/helpers/showToast'
-import userIcon from '@/assets/images/user.png'
-import moment from 'moment'
+} from "@/components/ui/table";
+import { useFetch } from "@/hooks/userFetch";
+import { getEnv } from "@/helpers/getEnv";
+import Loading from "@/components/Loading";
+import { FaRegTrashCan } from "react-icons/fa6";
+import { deleteData } from "@/helpers/handleDelete";
+import { showToast } from "@/helpers/showToast";
+import userIcon from "@/assets/images/user.png";
+import moment from "moment";
 
 const Users = () => {
-
-  const [refreshData, setRefreshData] = useState(false)
+  const [refreshData, setRefreshData] = useState(false);
 
   const { data, loading } = useFetch(
-    `${getEnv('VITE_BASE_URL')}/user/get-all-users`,
+    `${getEnv("VITE_BASE_URL")}/user/get-all-users`,
     { method: "GET", withCredentials: true },
-    [refreshData]
-  )
+    [refreshData],
+  );
 
   const handleDelete = async (id) => {
     const response = await deleteData(
-      `${getEnv('VITE_BASE_URL')}/user/delete/${id}`
-    )
+      `${getEnv("VITE_BASE_URL")}/user/delete/${id}`,
+    );
 
     if (response) {
-      setRefreshData(!refreshData)
-      showToast('success', "User Deleted")
+      setRefreshData(!refreshData);
+      showToast("success", "User Deleted");
     } else {
-      showToast('error', 'Failed to delete')
+      showToast("error", "Failed to delete");
     }
-  }
+  };
 
-  if (loading) return <Loading />
+  if (loading) return <Loading />;
 
   return (
     <Card>
@@ -50,15 +49,13 @@ const Users = () => {
           <Table className="min-w-200">
             {/* Table Header */}
             <TableHeader>
-              <TableRow className='bg-gray-100 hover:bg-gray-100 uppercase'>
-                <TableHead className='font-bold'>Role</TableHead>
-                <TableHead className='font-bold'>Name</TableHead>
-                <TableHead className='font-bold '>Email</TableHead>
-                <TableHead className='font-bold'>Avatar</TableHead>
-                <TableHead className='font-bold '>Registered On</TableHead>
-                <TableHead className='font-bold text-center'>
-                  Action
-                </TableHead>
+              <TableRow className="bg-gray-100 uppercase hover:bg-gray-100">
+                <TableHead className="font-bold">Role</TableHead>
+                <TableHead className="font-bold">Name</TableHead>
+                <TableHead className="font-bold">Email</TableHead>
+                <TableHead className="font-bold">Avatar</TableHead>
+                <TableHead className="font-bold">Registered On</TableHead>
+                <TableHead className="text-center font-bold">Action</TableHead>
               </TableRow>
             </TableHeader>
 
@@ -68,70 +65,61 @@ const Users = () => {
                 data.user.map((user) => (
                   <TableRow
                     key={user._id}
-                    className='hover:bg-gray-50 transition'
+                    className="transition hover:bg-gray-50"
                   >
                     {/* Blog Title */}
-                    <TableCell>
-                      {user?.role}
-                    </TableCell>
+                    <TableCell>{user?.role}</TableCell>
 
                     {/* Blog Title */}
-                    <TableCell>
-                      {user?.name}
-                    </TableCell>
+                    <TableCell>{user?.name}</TableCell>
 
                     {/* Blog Title */}
-                    <TableCell>
-                      {user?.email}
-                    </TableCell>
+                    <TableCell>{user?.email}</TableCell>
 
                     {/* Blog Title */}
                     <TableCell>
                       <img
                         src={user?.avatar || userIcon}
                         alt=""
-                        className="w-10 h-10 rounded-full object-cover"
+                        className="h-10 w-10 rounded-full object-cover"
                       />
                     </TableCell>
 
                     {/* Blog Title */}
                     <TableCell>
-                      {moment(user?.createdAt).format('DD MMM YYYY, hh:mm A')}
+                      {moment(user?.createdAt).format("DD MMM YYYY, hh:mm A")}
                     </TableCell>
 
                     {/* Actions */}
-                    <TableCell className='flex justify-center gap-2'>
+                    <TableCell className="flex justify-center gap-2">
                       {/* Delete */}
                       <Button
                         size="icon"
-                        variant='outline'
+                        variant="outline"
                         onClick={() => handleDelete(user._id)}
-                        className='text-red-500 hover:bg-red-500 hover:text-white'
+                        className="text-red-500 hover:bg-red-500 hover:text-white"
                       >
                         <FaRegTrashCan size={16} />
                       </Button>
                     </TableCell>
                   </TableRow>
                 ))
-
               ) : (
-
                 <TableRow>
                   <TableCell
                     colSpan={6}
-                    className='text-center h-60 text-gray-500 text-xl'
+                    className="h-60 text-center text-xl text-gray-500"
                   >
                     Data not found
                   </TableCell>
                 </TableRow>
-
               )}
             </TableBody>
           </Table>
         </div>
       </CardContent>
     </Card>
-  )
-}
+  );
+};
 
-export default Users
+export default Users;

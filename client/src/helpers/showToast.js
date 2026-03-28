@@ -1,9 +1,8 @@
-import { toast } from "react-toastify"
+import { toast } from "react-toastify";
 
 export const showToast = (type, message) => {
-
-  const isMobile = window.innerWidth < 640
-  const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024
+  const isMobile = window.innerWidth < 640;
+  const isTablet = window.innerWidth >= 640 && window.innerWidth < 1024;
 
   const config = {
     position: isMobile ? "top-center" : "top-right",
@@ -16,17 +15,17 @@ export const showToast = (type, message) => {
     style: {
       width: isMobile ? "300px" : isTablet ? "250px" : "350px",
       margin: "auto",
-      fontSize: isMobile ? "14px" : "15px"
-    }
-  }
+      fontSize: isMobile ? "14px" : "15px",
+    },
+  };
 
-  if (type === 'success') {
-    toast.success(message, config)
-  } else if (type === 'error') {
-    toast.error(message, config)
-  } else if (type === 'info') {
-    toast.info(message, config)
+  if (type === "success") {
+    toast.success(message, config);
+  } else if (type === "error") {
+    toast.error(message, config);
+  } else if (type === "info") {
+    toast.info(message, config);
   } else {
-    toast(message, config)
+    toast(message, config);
   }
-}
+};
